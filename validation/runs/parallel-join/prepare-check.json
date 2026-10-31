@@ -1,0 +1,6 @@
+{
+  "method": "read file and compare to explicit expected content",
+  "expected": "group,value\nA,2\nB,4\nA,6\nB,8\n",
+  "actual": "group,value\nA,2\nB,4\nA,6\nB,8\n",
+  "pass": true
+}

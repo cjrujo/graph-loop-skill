@@ -1,0 +1,23 @@
+test_01_real_sigkill_then_resume_safe_cursor (__main__.Recovery.test_01_real_sigkill_then_resume_safe_cursor) ... ok
+test_02_user_pause_export_isolated_process_resume_no_branch_replay (__main__.Recovery.test_02_user_pause_export_isolated_process_resume_no_branch_replay) ... ok
+test_03_provider_applied_but_ack_missing_never_resends (__main__.Recovery.test_03_provider_applied_but_ack_missing_never_resends) ... ok
+test_04_missing_and_tampered_artifacts_never_unlock (__main__.Recovery.test_04_missing_and_tampered_artifacts_never_unlock) ... ok
+test_05_latest_corrupt_previous_read_only_not_auto_rollback (__main__.Recovery.test_05_latest_corrupt_previous_read_only_not_auto_rollback) ... ok
+test_06_stale_import_cannot_replace_newer_authority (__main__.Recovery.test_06_stale_import_cannot_replace_newer_authority) ... ok
+test_07_attempt_work_elapsed_cannot_reset (__main__.Recovery.test_07_attempt_work_elapsed_cannot_reset) ... ok
+test_08_exhausted_budget_survives_restart (__main__.Recovery.test_08_exhausted_budget_survives_restart) ... ok
+test_09_cancel_terminal_pause_requires_explicit_resume (__main__.Recovery.test_09_cancel_terminal_pause_requires_explicit_resume) ... ok
+test_10_manifest_tamper_provenance_and_target_collision (__main__.Recovery.test_10_manifest_tamper_provenance_and_target_collision) ... ok
+test_11_input_mutation_and_missing_external_stay_blocked (__main__.Recovery.test_11_input_mutation_and_missing_external_stay_blocked) ... ok
+test_12_no_persistence_chat_fallback_document_inspection (__main__.Recovery.test_12_no_persistence_chat_fallback_document_inspection) ... ok
+test_13_stale_writer_and_checksum_valid_json_tamper (__main__.Recovery.test_13_stale_writer_and_checksum_valid_json_tamper) ... ok
+test_14_lock_collision_and_missing_latest_fail_closed (__main__.Recovery.test_14_lock_collision_and_missing_latest_fail_closed) ... ok
+test_15_unsafe_zip_paths_and_symlink_input_rejected (__main__.Recovery.test_15_unsafe_zip_paths_and_symlink_input_rejected) ... ok
+test_16_verifying_phase_restored_without_new_attempt (__main__.Recovery.test_16_verifying_phase_restored_without_new_attempt) ... ok
+test_17_reserved_paths_and_export_secret_match_rejected (__main__.Recovery.test_17_reserved_paths_and_export_secret_match_rejected) ... ok
+test_18_pause_ready_can_resume_without_fabricating_attempt (__main__.Recovery.test_18_pause_ready_can_resume_without_fabricating_attempt) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 4.238s
+
+OK

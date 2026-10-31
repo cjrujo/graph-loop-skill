@@ -1,0 +1,86 @@
+{
+  "success": true,
+  "method": "extract only standard skill ZIP to temp directory; run its own inspector/import/show/check/resume/pause/export and validate roundtrip hashes/resources",
+  "standard_zip_sha256": "0b235e1e0628d55f1cdaaf728e0726a46f5ad98b5b5a565688c3468c63bbabfd",
+  "commands": [
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/inspect_state.py",
+        "ISOLATED_ROOT/graph-loop/assets/state-template.json",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "import",
+        "SOURCE_ROOT/examples/portable-demo-v1-r5.zip",
+        "ISOLATED_ROOT/new-task",
+        "--expected-graph",
+        "portable-demo",
+        "--expected-lineage",
+        "the30-fixed-local-fixture"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "show",
+        "ISOLATED_ROOT/new-task"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "check",
+        "ISOLATED_ROOT/new-task"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "resume",
+        "ISOLATED_ROOT/new-task",
+        "--request-ref",
+        "fixture:explicit-local-resume",
+        "--permission-ref",
+        "fixture:local-only",
+        "--freshness-ref",
+        "fixture:isolated-authority-transfer"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "show",
+        "ISOLATED_ROOT/new-task"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "pause",
+        "ISOLATED_ROOT/new-task",
+        "--reason",
+        "fixed isolated fixture pause; no business operation was launched"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "ISOLATED_ROOT/graph-loop/scripts/recovery_store.py",
+        "export",
+        "ISOLATED_ROOT/new-task",
+        "ISOLATED_ROOT/roundtrip.zip"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "scope": "fixed local fixture only, no native host installation, business runner or real authority verification"
+}

@@ -1,0 +1,1 @@
+Local deterministic fixture: no external services or AI agents.

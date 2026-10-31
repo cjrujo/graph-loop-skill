@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "graph_id": "parallel-join",
+  "graph_version": 1,
+  "revision": 11,
+  "objective": "Execute a deterministic local validation fixture",
+  "acceptance": [
+    "Compare actual file contents against independently specified expected values"
+  ],
+  "constraints": [
+    "Preserve the user's scope and existing action gates"
+  ],
+  "assumptions": [
+    "Single accountable owner; no delegation assumed"
+  ],
+  "authorization": [
+    "THE-29 local validation; temporary/task-local files only; no external writes or agents"
+  ],
+  "context_sources": [
+    {
+      "ref": "user-request",
+      "trust": "user-authored task scope"
+    }
+  ],
+  "limits": {
+    "max_parallel": 2,
+    "deadline_utc": "2099-01-01T00:00:00Z"
+  },
+  "nodes": [
+    {
+      "id": "prepare",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: prepare",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "data.csv"
+      ],
+      "depends_on": [],
+      "status": "succeeded",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [
+        {
+          "ref": "data.csv",
+          "validity": "current",
+          "graph_version": 1,
+          "sha256": "31db2eebed657a1422a915f1b1a20a644b76676e5b0a2e550705dbac655f6823"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "prepare-check.json",
+          "kind": "execution",
+          "verdict": "pass",
+          "graph_version": 1
+        }
+      ]
+    },
+    {
+      "id": "stats",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: stats",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "stats.json"
+      ],
+      "depends_on": [
+        "prepare"
+      ],
+      "status": "succeeded",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [
+        {
+          "ref": "stats.json",
+          "validity": "current",
+          "graph_version": 1
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "stats-check.json",
+          "kind": "execution",
+          "verdict": "pass",
+          "graph_version": 1
+        }
+      ]
+    },
+    {
+      "id": "groups",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: groups",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "groups.json"
+      ],
+      "depends_on": [
+        "prepare"
+      ],
+      "status": "succeeded",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [
+        {
+          "ref": "groups.json",
+          "validity": "current",
+          "graph_version": 1
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "groups-check.json",
+          "kind": "execution",
+          "verdict": "pass",
+          "graph_version": 1
+        }
+      ]
+    },
+    {
+      "id": "report",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: report",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "depends_on": [
+        "stats",
+        "groups"
+      ],
+      "status": "ready",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "file": "graph-loop.zip",
+    "files": 6,
+    "bytes": 16593,
+    "sha256": "366d9595b92c96e683a7b12e1fe1e48081b0c9004c11a2ccca7440c40aa123b1"
+  },
+  {
+    "file": "graph-loop-review-bundle.zip",
+    "files": 100,
+    "bytes": 106111,
+    "sha256": "be69b7ff14dc91c61731d16201b5cca7997b649124d7e5c4c0347adf3d26b386"
+  }
+]

@@ -1,0 +1,25 @@
+test_01_simple_real_text_task (__main__.Validation.test_01_simple_real_text_task) ... ok
+test_02_parallel_file_work_and_join (__main__.Validation.test_02_parallel_file_work_and_join) ... ok
+test_03_retry_then_blocked_checkpoint_recovery (__main__.Validation.test_03_retry_then_blocked_checkpoint_recovery) ... ok
+test_04_branch_exclusion_and_join (__main__.Validation.test_04_branch_exclusion_and_join) ... ok
+test_05_replan_rejects_stale_success_and_join (__main__.Validation.test_05_replan_rejects_stale_success_and_join) ... ok
+test_06_attempt_budget_cannot_be_restarted (__main__.Validation.test_06_attempt_budget_cannot_be_restarted) ... ok
+test_07_no_progress_stops_retry (__main__.Validation.test_07_no_progress_stops_retry) ... ok
+test_08_failure_propagation_does_not_unlock (__main__.Validation.test_08_failure_propagation_does_not_unlock) ... ok
+test_09_not_run_is_not_pass (__main__.Validation.test_09_not_run_is_not_pass) ... ok
+test_10_simulation_requires_declared_scope (__main__.Validation.test_10_simulation_requires_declared_scope) ... ok
+test_11_missing_output_even_with_evidence (__main__.Validation.test_11_missing_output_even_with_evidence) ... ok
+test_12_topology_cycle_and_unknown_dependency (__main__.Validation.test_12_topology_cycle_and_unknown_dependency) ... ok
+test_13_branch_cannot_hide_required_work (__main__.Validation.test_13_branch_cannot_hide_required_work) ... ok
+test_14_parallel_resource_cap (__main__.Validation.test_14_parallel_resource_cap) ... ok
+test_15_blocker_needs_resume_condition (__main__.Validation.test_15_blocker_needs_resume_condition) ... ok
+test_16_view_uses_snapshot_and_escapes_task_text (__main__.Validation.test_16_view_uses_snapshot_and_escapes_task_text) ... ok
+test_17_cli_bad_json_and_invalid_snapshot (__main__.Validation.test_17_cli_bad_json_and_invalid_snapshot) ... ok
+test_18_project_copy_integrity_and_collision (__main__.Validation.test_18_project_copy_integrity_and_collision) ... ok
+test_19_duplicate_nodes_and_nonfinite_budgets (__main__.Validation.test_19_duplicate_nodes_and_nonfinite_budgets) ... ok
+test_20_false_success_without_current_evidence (__main__.Validation.test_20_false_success_without_current_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.927s
+
+OK

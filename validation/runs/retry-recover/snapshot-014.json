@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "graph_id": "retry-recover",
+  "graph_version": 1,
+  "revision": 14,
+  "objective": "Execute a deterministic local validation fixture",
+  "acceptance": [
+    "Compare actual file contents against independently specified expected values"
+  ],
+  "constraints": [
+    "Preserve the user's scope and existing action gates"
+  ],
+  "assumptions": [
+    "Single accountable owner; no delegation assumed"
+  ],
+  "authorization": [
+    "THE-29 local validation; temporary/task-local files only; no external writes or agents"
+  ],
+  "context_sources": [
+    {
+      "ref": "user-request",
+      "trust": "user-authored task scope"
+    }
+  ],
+  "limits": {
+    "max_parallel": 1,
+    "deadline_utc": "2099-01-01T00:00:00Z"
+  },
+  "nodes": [
+    {
+      "id": "produce",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: produce",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "number.txt"
+      ],
+      "depends_on": [],
+      "status": "succeeded",
+      "attempts": 2,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [
+        {
+          "ref": "number.txt",
+          "validity": "current",
+          "graph_version": 1,
+          "sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "failed-check.txt",
+          "kind": "execution",
+          "verdict": "fail",
+          "graph_version": 1
+        },
+        {
+          "ref": "produce-check.json",
+          "kind": "execution",
+          "verdict": "pass",
+          "graph_version": 1
+        }
+      ],
+      "reason": "Numeric parser rejected English text; changed repair: write decimal digits"
+    },
+    {
+      "id": "consume",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: consume",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "result.txt"
+      ],
+      "depends_on": [
+        "produce"
+      ],
+      "status": "succeeded",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [
+        {
+          "ref": "result.txt",
+          "validity": "current",
+          "graph_version": 1,
+          "sha256": "624b60c58c9d8bfb6ff1886c2fd605d2adeb6ea4da576068201b6c6958ce93f4"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "consume-check.json",
+          "kind": "execution",
+          "verdict": "pass",
+          "graph_version": 1
+        }
+      ]
+    }
+  ]
+}

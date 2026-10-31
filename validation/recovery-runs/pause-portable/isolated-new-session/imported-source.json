@@ -1,0 +1,11 @@
+{
+  "external_requirements": [],
+  "format": "graph-loop-portable-v1",
+  "graph_id": "portable-demo",
+  "graph_version": 1,
+  "lineage_id": "the30-fixed-local-fixture",
+  "missing": [],
+  "revision": 5,
+  "source_authority": "state.json",
+  "state_sha256": "82ae1411586f20d6b1b136da3e9adf7164c6d038493945117cd4ac29d79c7994"
+}

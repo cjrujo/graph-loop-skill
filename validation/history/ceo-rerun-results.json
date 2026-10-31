@@ -1,0 +1,9 @@
+{
+  "method": "deterministic fixtures and state invariants, not model or host evaluation",
+  "tests_run": 20,
+  "failures": 0,
+  "errors": 0,
+  "passed": 20,
+  "python": "3.12.3",
+  "successful": true
+}

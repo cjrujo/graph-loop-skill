@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "graph_id": "parallel-join",
+  "graph_version": 1,
+  "revision": 4,
+  "objective": "Execute a deterministic local validation fixture",
+  "acceptance": [
+    "Compare actual file contents against independently specified expected values"
+  ],
+  "constraints": [
+    "Preserve the user's scope and existing action gates"
+  ],
+  "assumptions": [
+    "Single accountable owner; no delegation assumed"
+  ],
+  "authorization": [
+    "THE-29 local validation; temporary/task-local files only; no external writes or agents"
+  ],
+  "context_sources": [
+    {
+      "ref": "user-request",
+      "trust": "user-authored task scope"
+    }
+  ],
+  "limits": {
+    "max_parallel": 2,
+    "deadline_utc": "2099-01-01T00:00:00Z"
+  },
+  "nodes": [
+    {
+      "id": "prepare",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: prepare",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "data.csv"
+      ],
+      "depends_on": [],
+      "status": "verifying",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": []
+    },
+    {
+      "id": "stats",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: stats",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "stats.json"
+      ],
+      "depends_on": [
+        "prepare"
+      ],
+      "status": "pending",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": []
+    },
+    {
+      "id": "groups",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: groups",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "groups.json"
+      ],
+      "depends_on": [
+        "prepare"
+      ],
+      "status": "pending",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": []
+    },
+    {
+      "id": "report",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: report",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "report.md"
+      ],
+      "depends_on": [
+        "stats",
+        "groups"
+      ],
+      "status": "pending",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": []
+    }
+  ]
+}

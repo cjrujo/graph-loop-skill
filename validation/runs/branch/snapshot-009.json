@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "graph_id": "branch",
+  "graph_version": 1,
+  "revision": 9,
+  "objective": "Execute a deterministic local validation fixture",
+  "acceptance": [
+    "Compare actual file contents against independently specified expected values"
+  ],
+  "constraints": [
+    "Preserve the user's scope and existing action gates"
+  ],
+  "assumptions": [
+    "Single accountable owner; no delegation assumed"
+  ],
+  "authorization": [
+    "THE-29 local validation; temporary/task-local files only; no external writes or agents"
+  ],
+  "context_sources": [
+    {
+      "ref": "user-request",
+      "trust": "user-authored task scope"
+    }
+  ],
+  "limits": {
+    "max_parallel": 1,
+    "deadline_utc": "2099-01-01T00:00:00Z"
+  },
+  "nodes": [
+    {
+      "id": "select",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: select",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "route.txt"
+      ],
+      "depends_on": [],
+      "status": "succeeded",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [
+        {
+          "ref": "route.txt",
+          "validity": "current",
+          "graph_version": 1,
+          "sha256": "81db8ebbbbc69c6c6ad4a6aa92b76e0c08af547da236b9e2c9dbe1d8285a8130"
+        }
+      ],
+      "evidence": [
+        {
+          "ref": "select-check.json",
+          "kind": "execution",
+          "verdict": "pass",
+          "graph_version": 1
+        }
+      ],
+      "selection": "small"
+    },
+    {
+      "id": "small",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: small",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "answer.txt"
+      ],
+      "depends_on": [
+        "select"
+      ],
+      "status": "verifying",
+      "attempts": 1,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": [],
+      "branch": {
+        "node": "select",
+        "equals": "small"
+      }
+    },
+    {
+      "id": "large",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: large",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "unused.txt"
+      ],
+      "depends_on": [
+        "select"
+      ],
+      "status": "skipped",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": [],
+      "branch": {
+        "node": "select",
+        "equals": "large"
+      }
+    },
+    {
+      "id": "join",
+      "owner": "single-agent-fixture",
+      "task": "Fixture work: join",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "joined.txt"
+      ],
+      "depends_on": [
+        "small",
+        "large"
+      ],
+      "status": "pending",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 2
+      },
+      "artifacts": [],
+      "evidence": []
+    }
+  ]
+}

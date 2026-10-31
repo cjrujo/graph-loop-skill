@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0-rc2",
+  "request": "Use English for the installation prompt.",
+  "previous_candidate_sha256": "67753bddd1b6077245b809d328d6d5fcc6a438f43dae6c64a79704963e0e891a",
+  "prompt": "install-prompt.en.md",
+  "prompt_language": "English",
+  "translation_review": "All eight instruction paragraphs retain the original requirements; manually compared with the Chinese prompt.",
+  "changed_supporting_files": [
+    "README.md",
+    "review.zh-CN.md",
+    "validation/ceo-review.zh-CN.md",
+    "validation/package_and_check.py",
+    "validation/source-manifest.json"
+  ],
+  "removed": [
+    "install-prompt.zh-CN.md"
+  ],
+  "added": [
+    "install-prompt.en.md",
+    "validation/english-prompt-revision.json"
+  ],
+  "core_files_byte_identical": 6,
+  "behavior_sources_and_recorded_results_byte_identical": true,
+  "behavior_tests_rerun": false,
+  "native_host_activation_tests_run": false,
+  "packaging_check": "Passed; standard six-file skill ZIP SHA-256 unchanged.",
+  "local_markdown_links_checked": 48,
+  "source_manifest_entries_verified": 98,
+  "publication": "Not approved; no GitHub writes."
+}

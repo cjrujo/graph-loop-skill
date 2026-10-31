@@ -1,0 +1,12 @@
+{
+  "success": true,
+  "format": "YAML name/description/metadata and directory conventions checked",
+  "skill_core_lines": 51,
+  "skill_files": 6,
+  "payload_sources": 98,
+  "local_markdown_links_checked": 39,
+  "source_sensitive_env_scan": "no exact matches in allowlisted sources; values not persisted",
+  "unsafe_archive_path_probes": "5 rejected, valid path accepted",
+  "archive_integrity": "CRC and every entry compared to source bytes; no symlinks or duplicate names",
+  "scope": "no host discovery, model evaluation, external upload or global installation"
+}

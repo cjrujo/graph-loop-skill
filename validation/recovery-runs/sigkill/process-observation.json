@@ -1,0 +1,13 @@
+{
+  "method": "real local subprocess SIGKILL after committed safe-step handshake",
+  "returncode": -9,
+  "last_committed_step": 1,
+  "resumed_squares": [
+    1,
+    4,
+    9
+  ],
+  "attempts": 1,
+  "cumulative_work_units": 3,
+  "not_tested": "power loss, arbitrary kill offsets, model adherence"
+}

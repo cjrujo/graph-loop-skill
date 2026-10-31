@@ -1,0 +1,6 @@
+{
+  "success": true,
+  "files": 109,
+  "method": "full SHA-256 map equality against pre-work baseline capture",
+  "excluded": "__pycache__ only"
+}

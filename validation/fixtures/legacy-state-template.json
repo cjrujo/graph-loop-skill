@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "graph_id": "task-example",
+  "graph_version": 1,
+  "revision": 1,
+  "objective": "Replace this example with the user's requested deliverable",
+  "acceptance": ["Replace with an observable acceptance check"],
+  "constraints": ["Preserve the user's scope and existing action gates"],
+  "assumptions": ["Single accountable owner; no delegation assumed"],
+  "authorization": ["Record the actual user/host authority reference before execution"],
+  "context_sources": [{"ref": "user-request", "trust": "user-authored task scope"}],
+  "limits": {"max_parallel": 1, "deadline_utc": "2099-01-01T00:00:00Z"},
+  "nodes": [
+    {
+      "id": "deliver",
+      "owner": "current-agent",
+      "task": "Produce and check the requested deliverable",
+      "inputs": ["user-request"],
+      "outputs": ["task-local-output"],
+      "depends_on": [],
+      "status": "pending",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 1
+      },
+      "artifacts": [],
+      "evidence": []
+    }
+  ]
+}

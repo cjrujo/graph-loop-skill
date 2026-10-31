@@ -1,0 +1,6 @@
+{
+  "method": "read file and compare to explicit expected content",
+  "expected": "old-input-result",
+  "actual": "old-input-result",
+  "pass": true
+}

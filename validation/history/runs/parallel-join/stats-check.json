@@ -1,0 +1,1 @@
+{"expected": {"count": 4, "total": 20, "mean": 5.0}, "actual": {"count": 4, "mean": 5.0, "total": 20}, "pass": true}

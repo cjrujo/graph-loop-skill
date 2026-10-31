@@ -1,0 +1,13 @@
+{
+  "success": true,
+  "candidate": "1.0.0-rc3",
+  "core_lines": 57,
+  "source_files": 287,
+  "local_markdown_links_checked": 95,
+  "secret_scan": "exact secret-like environment-value matching in sources/nested ZIPs; no matches; not universal secret detection",
+  "scanned_files_and_nested_members": 339,
+  "baseline": "109 original baseline files byte-identical",
+  "archive_validation": "CRC, unique safe members, no symlinks, every member byte-compared against source",
+  "source_manifest": "SHA-256 for every payload source; manifest/check files excluded from their own hashes",
+  "scope": "local structure/files/archive checks, not host activation or model adherence"
+}

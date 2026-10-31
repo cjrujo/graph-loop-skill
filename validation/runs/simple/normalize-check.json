@@ -1,0 +1,6 @@
+{
+  "method": "read file and compare to explicit expected content",
+  "expected": "alpha\nbeta\ngamma\n",
+  "actual": "alpha\nbeta\ngamma\n",
+  "pass": true
+}

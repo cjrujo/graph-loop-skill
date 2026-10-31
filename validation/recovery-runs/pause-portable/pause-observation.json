@@ -1,0 +1,9 @@
+{
+  "pause_at_step": 1,
+  "no_step_2_after_pause": true,
+  "isolated_process_and_directory": true,
+  "original_store_unreachable_during_resume": true,
+  "completed_branch_attempts": 1,
+  "excluded_branch_attempts": 0,
+  "method": "fixed local worker obeys explicit stdin pause command; not an AI stop-button test"
+}

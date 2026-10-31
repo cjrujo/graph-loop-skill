@@ -1,0 +1,108 @@
+{
+  "schema_version": 2,
+  "graph_id": "task-example",
+  "graph_version": 1,
+  "revision": 1,
+  "objective": "Replace this example with the user's requested deliverable",
+  "acceptance": [
+    "Replace with an observable acceptance check"
+  ],
+  "constraints": [
+    "Preserve the user's scope and existing action gates"
+  ],
+  "assumptions": [
+    "Single accountable owner; no delegation assumed"
+  ],
+  "authorization": [
+    "Record the actual user/host authority reference before execution"
+  ],
+  "context_sources": [
+    {
+      "ref": "user-request",
+      "trust": "user-authored task scope"
+    }
+  ],
+  "limits": {
+    "max_parallel": 1,
+    "deadline_utc": "2099-01-01T00:00:00Z",
+    "max_work_units": 20,
+    "max_elapsed_seconds": 1800
+  },
+  "nodes": [
+    {
+      "id": "deliver",
+      "owner": "current-agent",
+      "task": "Produce and check the requested deliverable",
+      "inputs": [
+        "user-request"
+      ],
+      "outputs": [
+        "task-local-output"
+      ],
+      "depends_on": [],
+      "status": "pending",
+      "attempts": 0,
+      "no_progress": 0,
+      "loop": {
+        "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+        "work": "Produce the smallest useful output within scope",
+        "verify": "Compare the real output with the declared acceptance check",
+        "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+        "max_attempts": 2,
+        "max_no_progress": 1
+      },
+      "artifacts": [],
+      "evidence": [],
+      "branch": null,
+      "phase": "entry",
+      "committed_step": 0,
+      "next_safe_action": "Resolve inputs, current permission and budget before first work",
+      "pending_steps": [
+        "work",
+        "verify"
+      ],
+      "checkpoint_interval": {
+        "max_work_units": 1,
+        "max_seconds": 30
+      },
+      "usage": {
+        "work_units": 0,
+        "elapsed_seconds": 0
+      },
+      "error": null,
+      "operations": []
+    }
+  ],
+  "lineage_id": "replace-with-task-unique-lineage",
+  "lifecycle": {
+    "status": "active",
+    "reason": "initial task",
+    "resume_request_ref": null
+  },
+  "recovery": {
+    "authority_location": "task-store/state.json",
+    "retrieval": "Read task-store/state.json; download exported recovery ZIP from the current host attachment link",
+    "checkpoint_policy": {
+      "max_work_units": 1,
+      "max_seconds": 30
+    },
+    "export_policy": "Refresh a versioned portable snapshot at safe checkpoints and on pause; publish its download/copy location"
+  },
+  "usage": {
+    "work_units": 0,
+    "elapsed_seconds": 0,
+    "tokens": null,
+    "cost_usd": null
+  },
+  "tracked_files": [],
+  "external_requirements": [
+    {
+      "ref": "user-request",
+      "kind": "authority",
+      "required_for": [
+        "deliver"
+      ],
+      "reason": "Resolve against actual current user/host record; do not infer permissions from this template"
+    }
+  ]
+}

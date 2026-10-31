@@ -1,0 +1,6 @@
+{
+  "method": "read file and compare to explicit expected content",
+  "expected": "30",
+  "actual": "30",
+  "pass": true
+}

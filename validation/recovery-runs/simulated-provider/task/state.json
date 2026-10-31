@@ -1,0 +1,309 @@
+{
+  "format": "graph-loop-checkpoint-v1",
+  "sha256": "b14a84739fe53f7b7b81a028b1d0da9ce721c1eb7fccaf82057bd12ef900cab7",
+  "state": {
+    "acceptance": [
+      "Replace with an observable acceptance check"
+    ],
+    "assumptions": [
+      "Single accountable owner; no delegation assumed"
+    ],
+    "authorization": [
+      "context/authority.txt: simulated local fixture authority ONLY; no provider writes"
+    ],
+    "constraints": [
+      "Preserve the user's scope and existing action gates"
+    ],
+    "context_sources": [
+      {
+        "ref": "context/authority.txt",
+        "trust": "fixture source, not real external authority"
+      }
+    ],
+    "external_requirements": [],
+    "graph_id": "portable-demo",
+    "graph_version": 1,
+    "lifecycle": {
+      "reason": "simulated missing acknowledgement",
+      "resume_request_ref": null,
+      "status": "interrupted"
+    },
+    "limits": {
+      "deadline_utc": "2099-01-01T00:00:00Z",
+      "max_elapsed_seconds": 1800,
+      "max_parallel": 1,
+      "max_work_units": 20
+    },
+    "lineage_id": "the30-fixed-local-fixture",
+    "nodes": [
+      {
+        "artifacts": [
+          {
+            "graph_version": 1,
+            "ref": "artifacts/route.txt",
+            "sha256": "81db8ebbbbc69c6c6ad4a6aa92b76e0c08af547da236b9e2c9dbe1d8285a8130",
+            "validity": "current"
+          }
+        ],
+        "attempts": 1,
+        "branch": null,
+        "checkpoint_interval": {
+          "max_seconds": 30,
+          "max_work_units": 1
+        },
+        "committed_step": 1,
+        "depends_on": [],
+        "error": null,
+        "evidence": [
+          {
+            "graph_version": 1,
+            "kind": "execution",
+            "ref": "evidence/select.json",
+            "verdict": "pass"
+          }
+        ],
+        "id": "select",
+        "inputs": [
+          "context/authority.txt"
+        ],
+        "loop": {
+          "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+          "max_attempts": 2,
+          "max_no_progress": 1,
+          "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+          "verify": "Compare the real output with the declared acceptance check",
+          "work": "Produce the smallest useful output within scope"
+        },
+        "next_safe_action": "Reuse verified result",
+        "no_progress": 0,
+        "operations": [],
+        "outputs": [
+          "artifacts/route.txt"
+        ],
+        "owner": "current-agent",
+        "pending_steps": [],
+        "phase": "done",
+        "selection": "small",
+        "status": "succeeded",
+        "task": "Produce and check the requested deliverable",
+        "usage": {
+          "elapsed_seconds": 0,
+          "work_units": 0
+        }
+      },
+      {
+        "artifacts": [
+          {
+            "graph_version": 1,
+            "ref": "artifacts/small.txt",
+            "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683",
+            "validity": "current"
+          }
+        ],
+        "attempts": 1,
+        "branch": {
+          "equals": "small",
+          "node": "select"
+        },
+        "checkpoint_interval": {
+          "max_seconds": 30,
+          "max_work_units": 1
+        },
+        "committed_step": 1,
+        "depends_on": [
+          "select"
+        ],
+        "error": null,
+        "evidence": [
+          {
+            "graph_version": 1,
+            "kind": "execution",
+            "ref": "evidence/small.json",
+            "verdict": "pass"
+          }
+        ],
+        "id": "small",
+        "inputs": [
+          "context/authority.txt"
+        ],
+        "loop": {
+          "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+          "max_attempts": 2,
+          "max_no_progress": 1,
+          "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+          "verify": "Compare the real output with the declared acceptance check",
+          "work": "Produce the smallest useful output within scope"
+        },
+        "next_safe_action": "Reuse verified result",
+        "no_progress": 0,
+        "operations": [],
+        "outputs": [
+          "artifacts/small.txt"
+        ],
+        "owner": "current-agent",
+        "pending_steps": [],
+        "phase": "done",
+        "status": "succeeded",
+        "task": "Produce and check the requested deliverable",
+        "usage": {
+          "elapsed_seconds": 0,
+          "work_units": 0
+        }
+      },
+      {
+        "artifacts": [],
+        "attempts": 0,
+        "branch": {
+          "equals": "large",
+          "node": "select"
+        },
+        "checkpoint_interval": {
+          "max_seconds": 30,
+          "max_work_units": 1
+        },
+        "committed_step": 0,
+        "depends_on": [
+          "select"
+        ],
+        "error": null,
+        "evidence": [],
+        "id": "large",
+        "inputs": [
+          "context/authority.txt"
+        ],
+        "loop": {
+          "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+          "max_attempts": 2,
+          "max_no_progress": 1,
+          "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+          "verify": "Compare the real output with the declared acceptance check",
+          "work": "Produce the smallest useful output within scope"
+        },
+        "next_safe_action": "Excluded branch; do not execute",
+        "no_progress": 0,
+        "operations": [],
+        "outputs": [],
+        "owner": "current-agent",
+        "pending_steps": [
+          "work",
+          "verify"
+        ],
+        "phase": "entry",
+        "status": "skipped",
+        "task": "Produce and check the requested deliverable",
+        "usage": {
+          "elapsed_seconds": 0,
+          "work_units": 0
+        }
+      },
+      {
+        "artifacts": [],
+        "attempts": 1,
+        "branch": null,
+        "checkpoint_interval": {
+          "max_seconds": 30,
+          "max_work_units": 1
+        },
+        "committed_step": 0,
+        "depends_on": [
+          "small",
+          "large"
+        ],
+        "error": null,
+        "evidence": [],
+        "id": "work",
+        "inputs": [
+          "context/authority.txt"
+        ],
+        "loop": {
+          "entry": "Inputs, permission source and finite task deadline/work allowance have been checked; replace the illustrative deadline before use",
+          "max_attempts": 2,
+          "max_no_progress": 1,
+          "repair": "Record cause and changed repair; progress means fewer unmet acceptance checks",
+          "verify": "Compare the real output with the declared acceptance check",
+          "work": "Produce the smallest useful output within scope"
+        },
+        "next_safe_action": "Start attempt then compute immutable step 1",
+        "no_progress": 0,
+        "operations": [
+          {
+            "id": "sim-provider-op-1",
+            "kind": "non_idempotent",
+            "provider_ref": "SIMULATED ledger.json",
+            "reconciliation_ref": "evidence/provider-reconcile.json",
+            "status": "confirmed"
+          }
+        ],
+        "outputs": [],
+        "owner": "current-agent",
+        "pending_steps": [
+          "work",
+          "verify"
+        ],
+        "phase": "work",
+        "status": "running",
+        "task": "Produce and check the requested deliverable",
+        "usage": {
+          "elapsed_seconds": 0,
+          "work_units": 0
+        }
+      }
+    ],
+    "objective": "Replace this example with the user's requested deliverable",
+    "recovery": {
+      "authority_location": "state.json",
+      "checkpoint_policy": {
+        "max_seconds": 30,
+        "max_work_units": 1
+      },
+      "export_policy": "Refresh a versioned portable snapshot at safe checkpoints and on pause; publish its download/copy location",
+      "retrieval": "Read the task store; export a versioned ZIP with recovery_store.py"
+    },
+    "revision": 4,
+    "schema_version": 2,
+    "tracked_files": [
+      {
+        "graph_version": 1,
+        "ref": "context/authority.txt",
+        "role": "context",
+        "sha256": "3d940c563bfd6f5ede6369ac93a6550787d3e489f01c13afd5d0920d9b404ae2"
+      },
+      {
+        "graph_version": 1,
+        "ref": "artifacts/route.txt",
+        "role": "output",
+        "sha256": "81db8ebbbbc69c6c6ad4a6aa92b76e0c08af547da236b9e2c9dbe1d8285a8130"
+      },
+      {
+        "graph_version": 1,
+        "ref": "evidence/select.json",
+        "role": "evidence",
+        "sha256": "df6579c3542148848aa2ef98dc79f42186d7cc9039af921787c380ecb0a3b5e6"
+      },
+      {
+        "graph_version": 1,
+        "ref": "artifacts/small.txt",
+        "role": "output",
+        "sha256": "e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+      },
+      {
+        "graph_version": 1,
+        "ref": "evidence/small.json",
+        "role": "evidence",
+        "sha256": "3b2ac865bab99ab426c734f94309545dee4e7fb3e48f18299396f40d4f47fbd4"
+      },
+      {
+        "graph_version": 1,
+        "ref": "evidence/provider-reconcile.json",
+        "role": "evidence",
+        "sha256": "a534b04df1447fc20d2efeb338ac9411c74279c3bbb506142aa370dd93cd930d"
+      }
+    ],
+    "usage": {
+      "cost_usd": null,
+      "elapsed_seconds": 0,
+      "tokens": null,
+      "work_units": 0
+    }
+  }
+}

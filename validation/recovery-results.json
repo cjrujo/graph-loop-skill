@@ -1,0 +1,17 @@
+{
+  "method": "real local subprocess interruption/pause and filesystem helper tests with fixed simulated workload/provider; fallback is document inspection",
+  "tests_run": 18,
+  "failures": 0,
+  "errors": 0,
+  "passed": 18,
+  "successful": true,
+  "python": "3.12.3",
+  "not_tested": [
+    "AI instruction adherence",
+    "seven-host integration",
+    "actual remote provider",
+    "power-loss durability",
+    "all crash offsets",
+    "chat retention and downloads in other hosts"
+  ]
+}
